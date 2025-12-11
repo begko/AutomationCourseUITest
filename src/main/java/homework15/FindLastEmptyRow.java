@@ -18,8 +18,6 @@ public class FindLastEmptyRow {
     public int getLastEmptyRowIndex() {
         // Find the rows before adding a new record
         List<WebElement> rowsBefore = driver.findElements(By.xpath("//div[@class='rt-tr-group']"));
-        int oldCount = rowsBefore.size();  // Store the current number of rows
-
         // Iterate through all rows to find the last empty row
         int lastEmptyRowIndex = -1;
         for (int i = 0; i < rowsBefore.size(); i++) {
