@@ -18,7 +18,6 @@ public class FindLastEmptyRow {
     public int getLastEmptyRowIndex() {
         // Find the rows before adding a new record
         List<WebElement> rowsBefore = driver.findElements(By.cssSelector("div.rt-tbody > div.rt-tr-group"));
-        int oldCount = rowsBefore.size();  // Store the current number of rows
 
         // Iterate through all rows to find the last empty row
         int lastEmptyRowIndex = -1;
@@ -41,13 +40,6 @@ public class FindLastEmptyRow {
                 break;
             }
         }
-
-        // If no empty row found, last row will be used for editing, otherwise, use the empty row
-        if (lastEmptyRowIndex == -1) {
-            // No empty row, proceed to the next available row
-            lastEmptyRowIndex = rowsBefore.size();  // Set to the next available row
-        }
-
         return lastEmptyRowIndex;
     }
 }
