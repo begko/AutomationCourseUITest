@@ -38,6 +38,22 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- Cucumber Java -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>7.20.1</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Cucumber TestNG -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>7.20.1</version>
+            <scope>test</scope>
+        </dependency>
+
         <!-- SLF4J Logger -->
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -58,15 +74,6 @@
             <artifactId>assertj-core</artifactId>
             <version>3.26.0</version>
         </dependency>
-
-
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>RELEASE</version>
-            <scope>compile</scope>
-        </dependency>
-
 
     </dependencies>
 </project>
