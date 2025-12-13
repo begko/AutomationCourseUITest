@@ -21,27 +21,26 @@ public class ButtonsPage {
     }
 
     //Click Button
-    public void clickButtons(){
+    public void clickButtons() {
         clickButton.click();
     }
 
     //Click Click Me Button
-    public void clickClickMeButton(){
+    public void clickClickMeButton() {
         clickMeButton.scrollIntoView(true).click();
     }
 
-    public void verifyButtonName(){
+    public void verifyButtonName() {
         clickButton.shouldHave(text("Buttons"));
     }
 
-    public void verifyClickMeButton(){
+    public void verifyClickMeButton() {
         clickMeButton.shouldHave(text("Click Me"));
     }
 
     public void verifyClickMeButtonMessage() {
         clickMeMessage.shouldHave(text("You have done a dynamic click"));
     }
-
 
 
 }
