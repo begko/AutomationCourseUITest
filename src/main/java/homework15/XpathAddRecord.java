@@ -109,10 +109,11 @@ public class XpathAddRecord {
         WebElement lastEmptyRow = rows.get(lastEmptyRowIndex);
 
         // Find the edit button in that row (Assuming it's a span with the title 'Edit')
-        WebElement editButton = lastEmptyRow.findElement(By.xpath(".//span[@title='Edit']"));
+        List<WebElement> edits = driver.findElements(By.xpath("//span[@title='Edit']"));
+        WebElement lastEditButton = edits.get(edits.size() - 1);
 
         // Click the Edit button
-        editButton.click();
+        lastEditButton.click();
 
         // Here you can add further steps like editing values
         WebElement firstNameField = driver.findElement(By.xpath("//input[@id='firstName']"));
