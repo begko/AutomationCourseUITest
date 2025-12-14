@@ -107,6 +107,16 @@ public class CssSelectorAddRecord {
         // Get the specific row (last empty row)
         WebElement lastEmptyRow = rows.get(lastEmptyRowIndex);
 
+        //Verify that the last record in the table matches the given data
+        List<WebElement> cells = lastEmptyRow.findElements(By.cssSelector(".rt-td"));
+        assert cells.get(0).getText().equals("Ayse") : "First Name value in table is incorrect!";
+        assert cells.get(1).getText().equals("Yilmaz") : "Last Name input value is incorrect!";
+        assert cells.get(2).getText().equals("24") : "Age input value is incorrect!";
+        assert cells.get(3).getText().equals("ayseyilmaz@gmail.com") : "User Email input value is incorrect!";
+        assert cells.get(4).getText().equals("50000") : "Salary input value is incorrect!";
+        assert cells.get(5).getText().equals("Test Automation") : "Department input value is incorrect!";
+
+
         // Find the edit button in that row (Assuming it's a span with the title 'Edit')
         List<WebElement> edits = driver.findElements(By.cssSelector("span[title='Edit']"));
         WebElement lastEditButton = edits.get(edits.size() - 1);
@@ -123,12 +133,12 @@ public class CssSelectorAddRecord {
         WebElement editSubmitButton = driver.findElement(By.cssSelector("#submit"));
         editSubmitButton.click();
 
-        // Wait for table to update (optional: short sleep or explicit wait)
+        // Wait for table to update
         wait.until(ExpectedConditions.textToBePresentInElement(lastEmptyRow, "Fatma"));
 
         // Verify that the First Name was updated
         rows = driver.findElements(By.cssSelector("div.rt-tbody > div.rt-tr-group"));
-        lastEmptyRow = rows.get(lastEmptyRowIndex); // Ensure we get the updated row
+        lastEmptyRow = rows.get(lastEmptyRowIndex);
         String updatedRowText = lastEmptyRow.getText();
         assert updatedRowText.contains("Fatma") : "First Name was NOT updated!";
 
