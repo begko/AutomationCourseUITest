@@ -8,12 +8,16 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class CssSelectorClickButton {
+public class CssSelectorClickButtonTest {
 
-    public static void main(String[] args) {
+    @Test
+    public void clickButtonTest() {
+
         // Setup ChromeDriver using WebDriverManager
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
@@ -31,7 +35,8 @@ public class CssSelectorClickButton {
         clickButton.click();
 
         // Assert that the text of the clicked menu item is "Buttons"
-        assert clickButton.getText().equals("Buttons") : "The menu item text is not 'Buttons'!";
+        Assert.assertEquals(clickButton.getText(), "Buttons",
+                "The menu item text is not 'Buttons'!");
 
         // Wait until the target button (excluding double/right click buttons) is clickable
         WebElement clickClickMe = wait.until(
@@ -41,7 +46,8 @@ public class CssSelectorClickButton {
         );
 
         // Scroll to the button
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", clickClickMe);
+        ((JavascriptExecutor) driver)
+                .executeScript("arguments[0].scrollIntoView(true);", clickClickMe);
 
         // Click the button
         clickClickMe.click();
@@ -50,8 +56,8 @@ public class CssSelectorClickButton {
         WebElement message = wait.until(
                 ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#dynamicClickMessage"))
         );
-        assert message.getText().equals("You have done a dynamic click")
-                : "Button click did not work as expected!";
+        Assert.assertEquals(message.getText(), "You have done a dynamic click",
+                "Button click did not work as expected!");
 
         // Close the browser
         driver.quit();
