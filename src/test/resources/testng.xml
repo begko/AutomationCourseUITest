@@ -1,0 +1,17 @@
+<suite name="PagesTestsSuite" verbose="1">
+    <listeners>
+        <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
+    </listeners>
+
+    <test name="ButtonsPage">
+        <packages>
+            <package name="homework16.pages"/>
+        </packages>
+    </test>
+
+    <test name="WebTablesPage">
+        <packages>
+            <package name="homework16.pages"/>
+        </packages>
+    </test>
+</suite>

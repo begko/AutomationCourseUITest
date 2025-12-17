@@ -6,9 +6,11 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = "stepdefinitions",
-        tags = "@ElementPage and @WebTablesPage",
-        plugin = {"pretty", "html:target/cucumber-report.html"},
-        monochrome = true
+        plugin = {
+                "pretty",
+                "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"
+        }
 )
+
 public class CucumberTests extends AbstractTestNGCucumberTests {
 }

@@ -1,9 +1,7 @@
 package homework16.tests;
 
 import homework16.pages.WebTablesPage;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import com.codeborne.selenide.Configuration;
 
 
 public class WebTablesPageTest {
@@ -33,6 +31,4 @@ public class WebTablesPageTest {
 
 
     }
-
-
 }
