@@ -15,7 +15,7 @@ public class ButtonsPageTest {
     }
 
     @Test
-    public void clickButtonsTest(){
+    public void clickButtonsTest() {
         ButtonsPage page = new ButtonsPage();
 
         //Open Elements Page
